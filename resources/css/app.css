@@ -1,0 +1,179 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+/*
+|--------------------------------------------------------------------------
+| Vanta Amber Design System — Tailwind CSS v4 Theme
+|--------------------------------------------------------------------------
+| A high-contrast, industrial aesthetic with deep blacks and warm amber accents.
+| Designed for the SolveHub Knowledge Sharing Platform.
+*/
+
+@theme {
+    /* Font families */
+    --font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+    /* Vanta Amber Color Palette */
+    --color-surface: #131313;
+    --color-surface-dim: #131313;
+    --color-surface-bright: #3a3939;
+    --color-surface-container-lowest: #0e0e0e;
+    --color-surface-container-low: #1c1b1b;
+    --color-surface-container: #201f1f;
+    --color-surface-container-high: #2a2a2a;
+    --color-surface-container-highest: #353534;
+
+    --color-background: #131313;
+    --color-on-background: #e5e2e1;
+    --color-on-surface: #e5e2e1;
+    --color-on-surface-variant: #d8c3ad;
+
+    --color-primary: #ffc174;
+    --color-on-primary: #472a00;
+    --color-primary-container: #f59e0b;
+    --color-on-primary-container: #613b00;
+    --color-primary-fixed-dim: #ffb95f;
+
+    --color-secondary: #c8c6c5;
+    --color-on-secondary: #303030;
+    --color-secondary-container: #474746;
+    --color-on-secondary-container: #b7b5b4;
+
+    --color-tertiary: #8fd5ff;
+    --color-on-tertiary: #00344a;
+    --color-tertiary-container: #1abdff;
+
+    --color-error: #ffb4ab;
+    --color-on-error: #690005;
+    --color-error-container: #93000a;
+    --color-on-error-container: #ffdad6;
+
+    --color-outline: #a08e7a;
+    --color-outline-variant: #534434;
+    --color-surface-tint: #ffb95f;
+
+    --color-inverse-surface: #e5e2e1;
+    --color-inverse-on-surface: #313030;
+    --color-inverse-primary: #855300;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Base Styles
+|--------------------------------------------------------------------------
+*/
+
+@layer base {
+    html {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+        background-color: var(--color-surface-container-lowest);
+        color: var(--color-on-surface);
+        font-family: var(--font-sans);
+    }
+
+    /* Material Symbols icon settings */
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+        font-size: 20px;
+    }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Component Styles
+|--------------------------------------------------------------------------
+*/
+
+@layer components {
+    /* Industrial dot grid background */
+    .industrial-grid {
+        background-image: radial-gradient(#262626 1px, transparent 1px);
+        background-size: 24px 24px;
+    }
+
+    /* Amber glow effect for focused/active elements */
+    .amber-glow {
+        box-shadow: 0 0 12px rgba(255, 193, 116, 0.15);
+    }
+
+    /* Card hover border transition */
+    .card-hover {
+        transition: border-color 0.15s ease;
+    }
+    .card-hover:hover {
+        border-color: rgba(255, 193, 116, 0.5);
+    }
+
+    /* Custom scrollbar for dark theme */
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background: var(--color-surface-container-lowest);
+    }
+    ::-webkit-scrollbar-thumb {
+        background: var(--color-surface-container-highest);
+        border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--color-outline-variant);
+    }
+
+    /* Focus ring for accessibility */
+    .focus-ring:focus {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+    }
+
+    /* Tag/Badge chip styles */
+    .tag-chip {
+        display: inline-flex;
+        align-items: center;
+        padding: 2px 10px;
+        font-size: 11px;
+        font-weight: 500;
+        border-radius: 4px;
+        background-color: var(--color-surface-container-highest);
+        color: var(--color-on-surface-variant);
+        border: 1px solid var(--color-outline-variant);
+        letter-spacing: 0.02em;
+    }
+
+    /* Stat number display */
+    .stat-number {
+        font-family: var(--font-mono);
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    /* Pagination styling */
+    .pagination-link {
+        padding: 8px 14px;
+        font-size: 13px;
+        font-family: var(--font-mono);
+        border: 1px solid var(--color-outline-variant);
+        color: var(--color-on-surface-variant);
+        background: var(--color-surface-container-low);
+        transition: all 0.15s ease;
+    }
+    .pagination-link:hover {
+        background: var(--color-surface-container-highest);
+        color: var(--color-primary);
+    }
+    .pagination-link.active {
+        background: var(--color-primary-container);
+        color: var(--color-on-primary-container);
+        border-color: var(--color-primary-container);
+    }
+}

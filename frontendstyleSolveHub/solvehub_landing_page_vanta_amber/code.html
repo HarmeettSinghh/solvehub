@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#ffc174",
+                        "on-background": "#e5e2e1",
+                        "tertiary": "#8fd5ff",
+                        "surface": "#131313",
+                        "inverse-surface": "#e5e2e1",
+                        "on-primary-fixed": "#2a1700",
+                        "surface-dim": "#131313",
+                        "primary-fixed": "#ffddb8",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "surface-variant": "#353534",
+                        "surface-tint": "#ffb95f",
+                        "surface-container-high": "#2a2a2a",
+                        "primary-fixed-dim": "#ffb95f",
+                        "surface-container-lowest": "#0e0e0e",
+                        "error-container": "#93000a",
+                        "on-surface-variant": "#d8c3ad",
+                        "on-secondary-container": "#b7b5b4",
+                        "background": "#131313",
+                        "on-tertiary-fixed-variant": "#004c6a",
+                        "on-tertiary": "#00344a",
+                        "on-tertiary-container": "#004966",
+                        "surface-container-highest": "#353534",
+                        "secondary": "#c8c6c5",
+                        "inverse-on-surface": "#313030",
+                        "on-secondary-fixed-variant": "#474746",
+                        "primary-container": "#f59e0b",
+                        "on-error-container": "#ffdad6",
+                        "on-error": "#690005",
+                        "outline-variant": "#534434",
+                        "secondary-container": "#474746",
+                        "on-secondary": "#303030",
+                        "on-primary-fixed-variant": "#653e00",
+                        "error": "#ffb4ab",
+                        "tertiary-container": "#1abdff",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-container": "#613b00",
+                        "outline": "#a08e7a",
+                        "on-primary": "#472a00",
+                        "surface-container-low": "#1c1b1b",
+                        "tertiary-fixed-dim": "#7fd0ff",
+                        "on-tertiary-fixed": "#001e2d",
+                        "tertiary-fixed": "#c5e7ff",
+                        "surface-container": "#201f1f",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "surface-bright": "#3a3939",
+                        "secondary-fixed": "#e4e2e1",
+                        "inverse-primary": "#855300"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin_desktop": "48px",
+                        "container_max_width": "1280px",
+                        "margin_mobile": "16px",
+                        "base_unit": "4px",
+                        "stack-md": "16px",
+                        "stack-xl": "48px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Geist"],
+                        "headline-sm": ["Geist"],
+                        "headline-lg-mobile": ["Geist"],
+                        "body-md": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "label-sm": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "headline-md": ["Geist"]
+                    },
+                    "fontSize": {
+                        "label-md": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-sm": ["20px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                        "label-sm": ["10px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0e0e0e;
+            color: #e5e2e1;
+            font-family: 'Geist', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .industrial-grid {
+            background-image: radial-gradient(#262626 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="industrial-grid">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-gutter h-16 max-w-max-width mx-auto bg-background/60 backdrop-blur-md border-b border-surface-container-low">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">SolveHub</span>
+<nav class="hidden md:flex gap-6">
+<a class="font-label-mono text-label-mono text-primary border-b-2 border-primary pb-1 transition-colors duration-150" href="#">Explore</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:bg-surface-container-highest/50 transition-colors duration-150" href="#">Tags</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:bg-surface-container-highest/50 transition-colors duration-150" href="#">Users</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="font-label-mono text-label-mono text-on-surface hover:text-primary transition-colors duration-150">Sign In</button>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-label-mono text-label-mono font-bold hover:opacity-90 active:scale-95 transition-all duration-150">Ask Question</button>
+</div>
+</header>
+<!-- SideNavBar (Desktop Only) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-stack-md z-40 bg-surface-dim border-r border-outline-variant w-[220px] hidden lg:flex">
+<div class="px-6 mb-10 mt-20">
+<h2 class="font-headline-sm text-headline-sm font-black text-primary">SolveHub</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Knowledge Engine</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-4 px-6 py-3 bg-surface-container-highest text-primary border-l-4 border-primary-container transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-mono text-label-mono">Home</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+<span class="font-label-mono text-label-mono">Trending</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-label-mono text-label-mono">Community</span>
+</a>
+</nav>
+</aside>
+<main class="pt-24 pb-12 lg:ml-[220px] px-gutter max-w-container_max_width mx-auto">
+<!-- Hero / Top Question -->
+<section class="mb-12">
+<div class="flex flex-col md:flex-row gap-8 bg-surface-container border border-outline-variant p-8 rounded-lg overflow-hidden relative">
+<div class="flex-1 z-10">
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-primary text-on-primary text-[10px] font-bold px-2 py-0.5 rounded uppercase">Featured</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-widest">Post #20492</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg mb-4 text-on-surface">Optimizing Low-Latency WebSockets in Distributed Systems</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 max-w-2xl">A deep dive into reducing jitter and overhead in high-throughput node environments across multiple data centers. How are you handling the TCP/UDP balance?</p>
+<div class="flex items-center gap-4">
+<button class="bg-primary-container text-on-primary-container px-8 py-3 rounded font-label-md text-label-md font-bold uppercase tracking-wider hover:bg-primary transition-colors">Join Discussion</button>
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-surface" data-alt="Portrait of a male engineer in a dark studio setting with cinematic rim lighting, focusing on his professional and concentrated expression. The lighting uses warm amber tones against a deep charcoal background to match the high-contrast industrial aesthetic of a premium technical platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4E3-ebjfHYAvnagP0hE8oARnGMC9GAG0Z6fHC7Y8egoy72yBA_qW0fsx6DAg55kdBnSx-b4JSs-xjdDqfex96rmMbAMHWzexV11mXaD9c9vYW3HsQB-zAFjiekx_Qd8WreCMh8wB5K7cW49AEgwB38oeJdzWMm-2N2EuTPcfXkwDovjJCGW1M9HFll64V2BdmpWuVGdbznTSaWueDcEBlRvgwIoo509_iS-PZTg1vrmU9-RfIUkPpJ8xKi69PIH0e0rAUPdZubfaR"/>
+<img class="w-8 h-8 rounded-full border-2 border-surface" data-alt="Portrait of a female developer with short hair, illuminated by soft golden light from one side, creating a high-contrast and authoritative look. The setting is a minimalist tech environment with dark surfaces and precise lighting, evoking professional focus and absolute clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWGC1h_ZSSc3Bw2RTMZTnVOoYGP8mMCQEVDSz0FhLXLd1kOoDI8-6XbMhW4Ifrox--UqArtjkTDsVPI-j1m4Z5xtlcjNAzccfkz6JYdTCKW5eN7FtOeI-JthLH43--kbiK2_MBN0J_6Ir976oYq1TGjqTKhThJcv3ksUlgWkqRxhb-Z5ESy7lgVzEMgCaCeWm2H6_w0y611XapeTRBuimY74vIep9bYWaDMxzECmNwI9wFY_qnrJx02kyZWCSxBKAesnkvXUiBou7b"/>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border-2 border-surface flex items-center justify-center font-label-sm text-label-sm text-primary">+12</div>
+</div>
+</div>
+</div>
+<div class="flex-none w-full md:w-1/3 h-48 md:h-auto rounded-lg overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover grayscale opacity-50 contrast-125" data-alt="Close-up of high-end server hardware in a data center, featuring complex wiring and glowing amber status LEDs. The scene is captured with a shallow depth of field in a near-black environment, utilizing deep blacks and warm amber highlights to emphasize technical precision and industrial power." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN9kYFi6U21mxCTFb6PpjxxIQtdY7PR65pEWnqQWvwb20Vp_bpcImpPMGsK19g-CbuUt5hJett1XzdCj78sUmnYGPPO4PbyIgEP8Q7YmMs1i2IKUwbAkUqp-Eub5mu-S77Jag_bW9C9YF27M4-6Fp4Octxm_dUtBVBO_DXkSq7Ny2Wif3Jrof2ptTavWV7tgIq1VuWQisYrSVu4vp4ipny2IFQoJhStbp-5TBLZFFEetrFhwy1fruvAx4vHSP_VTtecjrN6aw1mdaT"/>
+</div>
+</div>
+</section>
+<!-- Bento Grid Feed -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Large Activity Card -->
+<div class="md:col-span-8 bg-surface-container-low border border-outline-variant p-6 hover:border-primary/50 transition-colors cursor-pointer">
+<div class="flex justify-between items-start mb-6">
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-primary" data-icon="stat_3">stat_3</span>
+<span class="font-label-mono text-label-mono text-primary mt-1">82</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Implementing Rust-based WASM modules for hot-path acceleration</h3>
+<div class="flex gap-2">
+<span class="bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm px-2 py-0.5 rounded border border-outline-variant">RUST</span>
+<span class="bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm px-2 py-0.5 rounded border border-outline-variant">WASM</span>
+<span class="bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm px-2 py-0.5 rounded border border-outline-variant">PERFORMANCE</span>
+</div>
+</div>
+</div>
+<span class="text-on-surface-variant font-label-sm text-label-sm">4m ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">The overhead of JS bridge calls is becoming our primary bottleneck. Has anyone successfully moved the entire state machine into Rust memory while...</p>
+</div>
+<!-- Small Tech Metric -->
+<div class="md:col-span-4 bg-surface-container-highest border border-outline-variant p-6 flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.2em] block mb-4">Network Status</span>
+<div class="text-4xl font-black text-on-surface mb-2">99.98<span class="text-primary text-xl">%</span></div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Global system uptime across all SolveHub nodes for the current cycle.</p>
+</div>
+<div class="h-1 bg-surface-container-high mt-4">
+<div class="h-full bg-primary w-[99%] shadow-[0_0_8px_rgba(255,193,116,0.5)]"></div>
+</div>
+</div>
+<!-- Trending Topics (Vertical) -->
+<div class="md:col-span-3 bg-surface-container-lowest border border-outline-variant p-4">
+<h4 class="font-label-md text-label-md text-on-surface mb-4 border-b border-outline-variant pb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="trending_up">trending_up</span>
+                    TRENDING
+                </h4>
+<ul class="space-y-4">
+<li class="group flex items-center justify-between cursor-pointer">
+<span class="font-label-mono text-label-mono text-on-surface group-hover:text-primary transition-colors">#kubernetes-1.30</span>
+<span class="text-[10px] text-on-surface-variant font-mono">1.2k</span>
+</li>
+<li class="group flex items-center justify-between cursor-pointer">
+<span class="font-label-mono text-label-mono text-on-surface group-hover:text-primary transition-colors">#edge-computing</span>
+<span class="text-[10px] text-on-surface-variant font-mono">942</span>
+</li>
+<li class="group flex items-center justify-between cursor-pointer">
+<span class="font-label-mono text-label-mono text-on-surface group-hover:text-primary transition-colors">#vector-db</span>
+<span class="text-[10px] text-on-surface-variant font-mono">811</span>
+</li>
+<li class="group flex items-center justify-between cursor-pointer">
+<span class="font-label-mono text-label-mono text-on-surface group-hover:text-primary transition-colors">#typescript-v5</span>
+<span class="text-[10px] text-on-surface-variant font-mono">654</span>
+</li>
+</ul>
+</div>
+<!-- Wide Content Area -->
+<div class="md:col-span-9 bg-surface-container-low border border-outline-variant p-6">
+<div class="flex items-center gap-4 mb-6">
+<img class="w-10 h-10 rounded-sm grayscale" data-alt="A macro photograph of a high-precision mechanical clockwork mechanism, emphasizing the intricate gears and metallic textures. The lighting is focused and dramatic, with warm amber light glancing off the sharp edges of the steel components against a dark, industrial background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmP2aDgbiw7d11hekzHao5lwhAckipgx3Pym5NdixgNZzeccyGKynqcQcsfsX3louiXtq5Mw6ktwpDPildeQ1yloJMcaSLua594EUv1mMLWLdVNjeEwSMgrK7IV7ObTHzL4QTJF270EnLP46BYz5X6LdtaLhGXmPAHjUamwx9FyxwhlJv5C4p3F7sV8GdJPSCqZqGbZFuSQJBkcEo913mCHvhpVJW76W5vhRd09xjv1PWIAPAORkRxVIG25Hzs9aRshkq1KGJBJAiI"/>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Alex Mercer</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Senior Infrastructure Architect</p>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Why we're migrating our entire CI/CD pipeline to NixOS</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">The reproducibility problem has plagued our team for years. Nix flakes offer a deterministic solution that Docker containers simply can't match at our scale of microservices. Here is the architecture diagram for our new build farm...</p>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="aspect-square bg-surface border border-outline-variant rounded flex items-center justify-center p-4">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="schema">schema</span>
+</div>
+<div class="aspect-square bg-surface border border-outline-variant rounded flex items-center justify-center p-4">
+<span class="material-symbols-outlined text-on-surface-variant text-4xl" data-icon="terminal">terminal</span>
+</div>
+<div class="aspect-square bg-surface border border-outline-variant rounded flex items-center justify-center p-4">
+<span class="material-symbols-outlined text-on-surface-variant text-4xl" data-icon="lan">lan</span>
+</div>
+<div class="aspect-square bg-surface border border-outline-variant rounded flex items-center justify-center p-4">
+<span class="material-symbols-outlined text-on-surface-variant text-4xl" data-icon="cloud_sync">cloud_sync</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="p-6 bg-surface-container border border-outline-variant flex flex-col items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-2">Total Queries</span>
+<span class="font-headline-md text-headline-md text-primary font-black">2.4M</span>
+</div>
+<div class="p-6 bg-surface-container border border-outline-variant flex flex-col items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-2">Solved Today</span>
+<span class="font-headline-md text-headline-md text-primary font-black">12.8K</span>
+</div>
+<div class="p-6 bg-surface-container border border-outline-variant flex flex-col items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-2">Active Nodes</span>
+<span class="font-headline-md text-headline-md text-primary font-black">512</span>
+</div>
+<div class="p-6 bg-surface-container border border-outline-variant flex flex-col items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-2">Community</span>
+<span class="font-headline-md text-headline-md text-primary font-black">89K</span>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-xl px-gutter flex flex-col md:flex-row justify-between items-center max-w-max-width mx-auto border-t border-outline-variant bg-surface-container-lowest">
+<div class="mb-6 md:mb-0">
+<span class="font-label-mono text-label-mono font-bold text-on-surface">SolveHub</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">© 2024 SolveHub Technical Documentation. All rights reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Privacy Policy</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Terms of Service</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">API Status</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Contact Support</a>
+</div>
+</footer>
+<!-- FAB -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</body></html>

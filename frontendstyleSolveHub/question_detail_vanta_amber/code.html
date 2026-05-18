@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SolveHub - Technical Documentation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @font-face {
+            font-family: 'Geist';
+            src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        }
+        @font-face {
+            font-family: 'jetbrainsMono';
+            src: url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+        }
+        body {
+            font-family: 'Geist', sans-serif;
+            background-color: #131313;
+            color: #e5e2e1;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        code {
+            font-family: 'jetbrainsMono', monospace;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#004c6a",
+                    "surface-container-low": "#1c1b1b",
+                    "on-surface-variant": "#d8c3ad",
+                    "on-background": "#e5e2e1",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "surface-container-highest": "#353534",
+                    "primary-fixed": "#ffddb8",
+                    "secondary-fixed": "#e4e2e1",
+                    "inverse-on-surface": "#313030",
+                    "tertiary": "#8fd5ff",
+                    "on-tertiary-container": "#004966",
+                    "surface-variant": "#353534",
+                    "on-tertiary": "#00344a",
+                    "primary-fixed-dim": "#ffb95f",
+                    "tertiary-fixed-dim": "#7fd0ff",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-surface": "#e5e2e1",
+                    "secondary-container": "#474746",
+                    "inverse-primary": "#855300",
+                    "outline-variant": "#534434",
+                    "outline": "#a08e7a",
+                    "on-tertiary-fixed": "#001e2d",
+                    "error": "#ffb4ab",
+                    "tertiary-container": "#1abdff",
+                    "primary-container": "#f59e0b",
+                    "on-primary-fixed": "#2a1700",
+                    "on-secondary": "#303030",
+                    "on-primary-fixed-variant": "#653e00",
+                    "background": "#131313",
+                    "secondary": "#c8c6c5",
+                    "on-primary-container": "#613b00",
+                    "surface-container-high": "#2a2a2a",
+                    "on-error": "#690005",
+                    "tertiary-fixed": "#c5e7ff",
+                    "surface": "#131313",
+                    "surface-tint": "#ffb95f",
+                    "surface-container": "#201f1f",
+                    "inverse-surface": "#e5e2e1",
+                    "surface-dim": "#131313",
+                    "surface-bright": "#3a3939",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-container": "#b7b5b4",
+                    "on-secondary-fixed-variant": "#474746",
+                    "primary": "#ffc174",
+                    "error-container": "#93000a",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "on-primary": "#472a00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container_max_width": "1280px",
+                    "margin_mobile": "16px",
+                    "margin_desktop": "48px",
+                    "gutter": "24px",
+                    "base_unit": "4px",
+                    "stack-xl": "48px",
+                    "stack-md": "24px",
+                    "stack-sm": "12px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Geist"],
+                    "label-sm": ["Geist"],
+                    "label-md": ["Geist"],
+                    "headline-sm": ["Geist"],
+                    "headline-lg": ["Geist"],
+                    "body-md": ["Geist"],
+                    "body-lg": ["Geist"],
+                    "label-mono": ["jetbrainsMono"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["10px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "label-md": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-sm": ["20px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "label-mono": ["13px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-surface-container-highest h-16">
+<nav class="max-w-[1280px] mx-auto h-full flex justify-between items-center px-gutter">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">SolveHub</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="font-label-mono text-label-md text-primary border-b-2 border-primary pb-1 transition-colors duration-150" href="#">Explore</a>
+<a class="font-label-mono text-label-md text-on-surface-variant hover:text-on-surface transition-colors duration-150" href="#">Tags</a>
+<a class="font-label-mono text-label-md text-on-surface-variant hover:text-on-surface transition-colors duration-150" href="#">Users</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="font-label-mono text-label-md text-on-surface-variant hover:text-on-surface px-3 py-2 transition-colors">Sign In</button>
+<button class="bg-primary text-on-primary font-label-mono text-label-md px-4 py-2 rounded active:scale-95 transition-all duration-150">Ask Question</button>
+</div>
+</nav>
+</header>
+<!-- Main Content Area -->
+<main class="pt-24 pb-stack-xl max-w-[1280px] mx-auto px-gutter">
+<!-- Header Section -->
+<div class="mb-stack-xl">
+<nav class="flex items-center gap-2 mb-stack-sm font-label-mono text-label-md text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">Questions</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Infrastructure</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface">Detail</span>
+</nav>
+<h1 class="font-headline-md text-headline-md text-on-surface mb-stack-sm max-w-[800px]">Optimizing Redis cache invalidation strategies for high-throughput WebSocket events</h1>
+<div class="flex items-center gap-4 font-body-md text-body-md text-on-surface-variant">
+<span>Asked <b class="text-on-surface font-medium">3 days ago</b></span>
+<span>Active <b class="text-on-surface font-medium">today</b></span>
+<span>Viewed <b class="text-on-surface font-medium">12k times</b></span>
+</div>
+</div>
+<div class="flex flex-col lg:flex-row gap-12">
+<!-- Left Column: Question Detail -->
+<div class="flex-grow max-w-[800px]">
+<div class="flex gap-6 mb-stack-xl">
+<!-- Voting Column -->
+<div class="flex flex-col items-center gap-2 w-10 flex-shrink-0">
+<button class="p-1 hover:bg-surface-container-highest transition-colors rounded text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined text-[32px]">arrow_drop_up</span>
+</button>
+<span class="font-headline-md text-headline-md text-primary">42</span>
+<button class="p-1 hover:bg-surface-container-highest transition-colors rounded text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined text-[32px]">arrow_drop_down</span>
+</button>
+<button class="mt-4 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-weight="fill">bookmark</span>
+</button>
+<button class="mt-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">history</span>
+</button>
+</div>
+<!-- Question Body -->
+<div class="flex-grow font-body-lg text-body-lg leading-relaxed text-on-surface-variant">
+<p class="mb-4">We are currently seeing a significant latency spike during high-throughput WebSocket events where cache invalidation is triggered across multiple clusters. The current strategy relies on a simple TTL-based expiration, but this leads to "thundering herd" problems when keys expire simultaneously.</p>
+<p class="mb-4">Has anyone successfully implemented a probabilistic cache invalidation or a more robust pub/sub model to handle 100k+ concurrent connections without saturating the Redis I/O?</p>
+<pre class="bg-surface-container-lowest border border-outline-variant rounded p-4 my-6 overflow-x-auto"><code class="text-primary-fixed-dim text-sm">// Current implementation causing bottlenecks
+async function invalidate(key) {
+  const result = await redis.del(key);
+  if (result) {
+    logger.log(`Invalidated: ${key}`);
+    broadcastEvent('cache_flush', { key });
+  }
+}</code></pre>
+<div class="flex flex-wrap gap-2 mt-8">
+<span class="font-label-mono text-label-md px-3 py-1 bg-surface-container-high text-primary border border-outline-variant rounded">redis</span>
+<span class="font-label-mono text-label-md px-3 py-1 bg-surface-container-high text-primary border border-outline-variant rounded">websockets</span>
+<span class="font-label-mono text-label-md px-3 py-1 bg-surface-container-high text-primary border border-outline-variant rounded">caching</span>
+<span class="font-label-mono text-label-md px-3 py-1 bg-surface-container-high text-primary border border-outline-variant rounded">node.js</span>
+</div>
+<div class="mt-12 flex justify-between items-start bg-surface-container-low p-4 rounded border border-outline-variant">
+<div class="flex gap-4">
+<button class="text-on-surface-variant hover:text-primary text-sm font-medium transition-colors">Share</button>
+<button class="text-on-surface-variant hover:text-primary text-sm font-medium transition-colors">Edit</button>
+<button class="text-on-surface-variant hover:text-primary text-sm font-medium transition-colors">Follow</button>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-xs text-on-surface-variant mb-2">asked Oct 24 at 14:22</span>
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-on-primary-container font-bold text-xs">JD</div>
+<span class="text-primary text-sm font-semibold">JohnDev_99</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Answers Header -->
+<div class="flex items-center justify-between border-b border-outline-variant pb-4 mb-stack-md">
+<h2 class="font-headline-md text-headline-md text-on-surface">2 Answers</h2>
+<div class="flex gap-2 font-label-mono text-label-md">
+<span class="text-on-surface-variant">Sorted by:</span>
+<select class="bg-transparent border-none text-primary focus:ring-0 cursor-pointer p-0 font-medium">
+<option class="bg-surface-container-highest">Highest score</option>
+<option class="bg-surface-container-highest">Recent</option>
+</select>
+</div>
+</div>
+<!-- Accepted Answer -->
+<div class="mb-stack-xl border-l-4 border-primary-container pl-6 py-2">
+<div class="flex gap-6">
+<div class="flex flex-col items-center gap-2 w-10 flex-shrink-0">
+<button class="p-1 hover:bg-surface-container-highest transition-colors rounded text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined text-[32px]">arrow_drop_up</span>
+</button>
+<span class="font-headline-md text-headline-md text-primary">86</span>
+<button class="p-1 hover:bg-surface-container-highest transition-colors rounded text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined text-[32px]">arrow_drop_down</span>
+</button>
+<span class="material-symbols-outlined text-primary-container mt-4" data-weight="fill">check_circle</span>
+</div>
+<div class="flex-grow font-body-lg text-body-lg text-on-surface-variant">
+<div class="inline-flex items-center gap-1 bg-primary-container/10 text-primary-container px-2 py-1 rounded text-xs font-bold mb-4 border border-primary-container/20">
+<span class="material-symbols-outlined text-sm">verified</span>
+                                ACCEPTED ANSWER
+                            </div>
+<p class="mb-4">You should look into the <b class="text-on-surface">XADD</b> command in Redis Streams. Unlike the standard Pub/Sub model which is fire-and-forget, Streams provide a persistent log that allows consumers to catch up if they miss an invalidation window.</p>
+<p class="mb-4">For the thundering herd, implement a Jitter-based TTL. Instead of a fixed 300s, use <code class="bg-surface-container-highest px-1 rounded">300 + rand(0, 30)</code>. Here is a cleaner implementation using Lua scripting for atomicity:</p>
+<pre class="bg-surface-container-lowest border border-outline-variant rounded p-4 my-6 overflow-x-auto"><code class="text-primary-fixed-dim text-sm">-- atomicity-safe invalidation with stream update
+local key = KEYS[1]
+local stream = KEYS[2]
+redis.call('DEL', key)
+redis.call('XADD', stream, '*', 'action', 'invalidate', 'key', key)
+return true</code></pre>
+<div class="mt-8 flex justify-end">
+<div class="bg-surface-container-low p-4 rounded border border-outline-variant w-48">
+<span class="text-xs text-on-surface-variant block mb-2">answered Oct 24 at 16:45</span>
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold text-xs">SR</div>
+<div>
+<span class="text-primary text-sm font-semibold block">S_Ramos</span>
+<span class="text-[10px] text-on-surface-variant font-label-mono uppercase tracking-wider">REP 14.2k</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Standard Answer -->
+<div class="pt-stack-xl border-t border-outline-variant">
+<div class="flex gap-6">
+<div class="flex flex-col items-center gap-2 w-10 flex-shrink-0 text-on-surface-variant">
+<button class="p-1 hover:bg-surface-container-highest transition-colors rounded hover:text-primary">
+<span class="material-symbols-outlined text-[32px]">arrow_drop_up</span>
+</button>
+<span class="font-headline-md text-headline-md">12</span>
+<button class="p-1 hover:bg-surface-container-highest transition-colors rounded hover:text-primary">
+<span class="material-symbols-outlined text-[32px]">arrow_drop_down</span>
+</button>
+</div>
+<div class="flex-grow font-body-lg text-body-lg text-on-surface-variant">
+<p>Another approach is using client-side caching (Redis 6+). This allows your application nodes to track which keys they have cached, and Redis will push a message to specific clients only when those keys change. This drastically reduces network overhead.</p>
+<div class="mt-8 flex justify-end">
+<div class="p-4 w-48">
+<span class="text-xs text-on-surface-variant block mb-2">answered Oct 25 at 09:10</span>
+<div class="flex items-center gap-2">
+<img alt="S_Ramos" class="w-8 h-8 rounded object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCPFTFonWaygHqRXVTAm77uPx8CNcGA_e1YQM3ZjdZd0yoFknbN2ffCnTTyGCOP_rcEBr0AwAnFH_PSwDuGWF-mgu6wK-8PfKdMfiT4L8jNRHLugEeJjqrgtPX4KALlntCgGOuSpqmeZNRB1LZ8Yz1Q2K-QiIXIiyaZFw-F5VIJIXcm9YrfJ06Uts6LWWcUlWSI5JeozRggbT49OCAA86PnoPdXY8-j5UZzlT4Gh0TcJN4zvCMcIElhxWeo2_Zb6nepa_-IYmRwtdV"/>
+<span class="text-primary text-sm font-semibold">Marc_Architecture</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Sidebar -->
+<aside class="w-full lg:w-[320px] flex-shrink-0">
+<div class="bg-surface-container border border-outline-variant rounded-xl p-6 mb-8">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-6 border-b border-outline-variant pb-2">Question Stats</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="font-label-mono text-label-md text-on-surface-variant">Score</span>
+<span class="font-label-mono text-label-md text-primary font-bold">42</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label-mono text-label-md text-on-surface-variant">Answers</span>
+<span class="font-label-mono text-label-md text-on-surface">2</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label-mono text-label-md text-on-surface-variant">Views</span>
+<span class="font-label-mono text-label-md text-on-surface">12,482</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label-mono text-label-md text-on-surface-variant">Followers</span>
+<span class="font-label-mono text-label-md text-on-surface">156</span>
+</div>
+</div>
+</div>
+<div class="mb-8">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">Related Questions</h3>
+<ul class="space-y-6">
+<li>
+<a class="font-body-md text-body-md text-primary hover:underline leading-snug block font-medium" href="#">How to handle Redis failover in a Kubernetes cluster without losing session data?</a>
+<span class="font-label-mono text-xs text-on-surface-variant mt-1 block">15 votes • 4 answers</span>
+</li>
+<li>
+<a class="font-body-md text-body-md text-primary hover:underline leading-snug block font-medium" href="#">Scaling Node.js WebSocket server to 1M+ concurrent users on AWS.</a>
+<span class="font-label-mono text-xs text-on-surface-variant mt-1 block">212 votes • 18 answers</span>
+</li>
+<li>
+<a class="font-body-md text-body-md text-primary hover:underline leading-snug block font-medium" href="#">Difference between Redis Pub/Sub and Redis Streams for event buses?</a>
+<span class="font-label-mono text-xs text-on-surface-variant mt-1 block">45 votes • 6 answers</span>
+</li>
+<li>
+<a class="font-body-md text-body-md text-primary hover:underline leading-snug block font-medium" href="#">Best practices for cache warming in a multi-region setup.</a>
+<span class="font-label-mono text-xs text-on-surface-variant mt-1 block">8 votes • 2 answers</span>
+</li>
+</ul>
+</div>
+<div class="bg-primary-container/5 border border-primary-container/20 rounded-xl p-6">
+<h3 class="font-label-mono text-label-md font-bold text-primary mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">lightbulb</span>
+    PRO TIP
+</h3>
+<p class="font-body-md text-body-md text-on-surface-variant italic leading-relaxed">Consider using Redis 'Lazy Freeing' configurations to prevent large DEL operations from blocking the main thread during high-throughput spikes.</p>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-gutter bg-surface-container-lowest border-t border-outline-variant">
+<div class="max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="text-center md:text-left">
+<span class="font-label-mono text-label-md font-bold text-on-surface block mb-2 uppercase tracking-widest">SolveHub Documentation</span>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 SolveHub. Built for architects and developers.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-label-mono text-label-md text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Privacy</a>
+<a class="font-label-mono text-label-md text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Terms</a>
+<a class="font-label-mono text-label-md text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Status</a>
+<a class="font-label-mono text-label-md text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Support</a>
+</div>
+</div>
+</footer>
+</body></html>

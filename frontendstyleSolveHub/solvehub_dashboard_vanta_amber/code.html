@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist.min.css" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#353534",
+                        "inverse-on-surface": "#313030",
+                        "surface-container-lowest": "#0e0e0e",
+                        "secondary-fixed": "#e4e2e1",
+                        "inverse-primary": "#855300",
+                        "on-primary-fixed": "#2a1700",
+                        "on-background": "#e5e2e1",
+                        "tertiary": "#8fd5ff",
+                        "on-tertiary-fixed": "#001e2d",
+                        "surface": "#131313",
+                        "on-error-container": "#ffdad6",
+                        "surface-bright": "#3a3939",
+                        "surface-container-highest": "#353534",
+                        "outline-variant": "#534434",
+                        "tertiary-container": "#1abdff",
+                        "on-secondary": "#303030",
+                        "on-primary": "#472a00",
+                        "primary-fixed-dim": "#ffb95f",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "secondary": "#c8c6c5",
+                        "tertiary-fixed-dim": "#7fd0ff",
+                        "primary-container": "#f59e0b",
+                        "on-surface-variant": "#d8c3ad",
+                        "on-error": "#690005",
+                        "on-tertiary": "#00344a",
+                        "outline": "#a08e7a",
+                        "on-secondary-container": "#b7b5b4",
+                        "on-primary-container": "#613b00",
+                        "surface-tint": "#ffb95f",
+                        "on-primary-fixed-variant": "#653e00",
+                        "error": "#ffb4ab",
+                        "on-surface": "#e5e2e1",
+                        "inverse-surface": "#e5e2e1",
+                        "on-tertiary-container": "#004966",
+                        "primary-fixed": "#ffddb8",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "error-container": "#93000a",
+                        "tertiary-fixed": "#c5e7ff",
+                        "surface-container-high": "#2a2a2a",
+                        "background": "#131313",
+                        "primary": "#ffc174",
+                        "on-secondary-fixed-variant": "#474746",
+                        "surface-dim": "#131313",
+                        "on-tertiary-fixed-variant": "#004c6a",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-container": "#201f1f",
+                        "secondary-container": "#474746"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "section-gap-lg": "8rem",
+                        "gutter": "24px",
+                        "stack-md": "1.5rem",
+                        "max-width": "1120px",
+                        "section-gap-md": "6rem",
+                        "stack-sm": "0.75rem",
+                        "stack-xl": "3rem",
+                        "stack-xs": "0.25rem"
+                    },
+                    "fontFamily": {
+                        "label-mono": ["JetBrains Mono", "monospace"],
+                        "body-md": ["Geist", "sans-serif"],
+                        "headline-xl": ["Geist", "sans-serif"],
+                        "body-lg": ["Geist", "sans-serif"],
+                        "headline-lg": ["Geist", "sans-serif"],
+                        "body-sm": ["Geist", "sans-serif"],
+                        "headline-md": ["Geist", "sans-serif"],
+                        "caption": ["Geist", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "label-mono": ["13px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.65", "fontWeight": "400"}],
+                        "headline-xl": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.03em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.65", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.025em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Geist', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-container/30">
+<!-- Fixed Sidebar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-stack-md z-40 bg-surface-dim border-r border-outline-variant w-[220px]">
+<div class="px-6 mb-10">
+<h1 class="font-headline-sm text-headline-sm font-black text-primary">SolveHub</h1>
+<p class="font-label-mono text-label-mono text-on-surface-variant opacity-70">Knowledge Engine</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center px-6 py-3 bg-surface-container-highest text-primary border-l-4 border-primary-container hover:bg-surface-container transition-all duration-150" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="home">home</span>
+<span class="font-label-mono text-label-mono">Home</span>
+</a>
+<a class="flex items-center px-6 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all duration-150" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="trending_up">trending_up</span>
+<span class="font-label-mono text-label-mono">Trending</span>
+</a>
+<a class="flex items-center px-6 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all duration-150" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="groups">groups</span>
+<span class="font-label-mono text-label-mono">Community</span>
+</a>
+<div class="pt-6 pb-2 px-6">
+<p class="font-caption text-on-surface-variant uppercase tracking-widest opacity-50">Insights</p>
+</div>
+<a class="flex items-center px-6 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all duration-150" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="analytics">analytics</span>
+<span class="font-label-mono text-label-mono">Analytics</span>
+</a>
+<a class="flex items-center px-6 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all duration-150" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="history">history</span>
+<span class="font-label-mono text-label-mono">History</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/30">
+<p class="font-caption text-on-surface-variant mb-1">Reputation</p>
+<p class="font-label-mono text-primary font-bold">2,482 XP</p>
+</div>
+</div>
+</aside>
+<!-- Main Viewport Wrapper -->
+<div class="ml-[220px] flex">
+<!-- Main Content Canvas -->
+<main class="flex-1 min-w-0 p-gutter bg-background">
+<!-- Header Section -->
+<header class="mb-stack-xl flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">System Overview</h2>
+<p class="font-body-md text-on-surface-variant mt-1">Real-time status of your technical queries and knowledge contributions.</p>
+</div>
+<button class="bg-primary-container text-on-primary-container px-5 py-2.5 rounded font-label-mono text-label-mono font-bold hover:bg-primary transition-colors active:scale-95 duration-150">
+                Ask Question
+            </button>
+</header>
+<!-- Stats Row -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-stack-xl">
+<!-- Card 1 -->
+<div class="bg-surface-container-low border border-outline-variant p-5 rounded-lg">
+<p class="font-label-mono text-caption text-on-surface-variant uppercase tracking-wider mb-3">Total Solved</p>
+<p class="font-label-mono text-[32px] leading-none text-primary font-bold">1,284</p>
+<p class="mt-4 flex items-center font-label-mono text-caption text-secondary">
+<span class="material-symbols-outlined text-[14px] mr-1" data-icon="arrow_upward">arrow_upward</span>
+                    +12.4% <span class="text-on-surface-variant/50 ml-1">vs last week</span>
+</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-low border border-outline-variant p-5 rounded-lg">
+<p class="font-label-mono text-caption text-on-surface-variant uppercase tracking-wider mb-3">Avg Response</p>
+<p class="font-label-mono text-[32px] leading-none text-on-surface font-bold">18m</p>
+<p class="mt-4 flex items-center font-label-mono text-caption text-secondary">
+<span class="material-symbols-outlined text-[14px] mr-1" data-icon="arrow_downward">arrow_downward</span>
+                    -2.1m <span class="text-on-surface-variant/50 ml-1">optimization</span>
+</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-low border border-outline-variant p-5 rounded-lg">
+<p class="font-label-mono text-caption text-on-surface-variant uppercase tracking-wider mb-3">Active Peers</p>
+<p class="font-label-mono text-[32px] leading-none text-on-surface font-bold">42</p>
+<p class="mt-4 flex items-center font-label-mono text-caption text-primary">
+<span class="material-symbols-outlined text-[14px] mr-1" data-icon="trending_flat">trending_flat</span>
+                    Steady <span class="text-on-surface-variant/50 ml-1">active session</span>
+</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-low border border-outline-variant p-5 rounded-lg">
+<p class="font-label-mono text-caption text-on-surface-variant uppercase tracking-wider mb-3">Documentation Score</p>
+<p class="font-label-mono text-[32px] leading-none text-secondary font-bold">98%</p>
+<p class="mt-4 flex items-center font-label-mono text-caption text-secondary">
+<span class="material-symbols-outlined text-[14px] mr-1" data-icon="verified">verified</span>
+                    Top 5% <span class="text-on-surface-variant/50 ml-1">globally</span>
+</p>
+</div>
+</div>
+<!-- Questions Feed -->
+<section class="bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden">
+<div class="px-6 py-4 border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-label-mono text-label-mono font-bold text-on-surface">Recent Technical Queries</h3>
+<div class="flex gap-4">
+<span class="font-label-mono text-caption text-on-surface-variant flex items-center">
+<span class="w-2 h-2 rounded-full bg-secondary mr-2"></span> Solved
+                    </span>
+<span class="font-label-mono text-caption text-on-surface-variant flex items-center">
+<span class="w-2 h-2 rounded-full bg-primary mr-2"></span> Pending
+                    </span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container/50">
+<th class="px-6 py-3 font-label-mono text-caption text-on-surface-variant uppercase">Status</th>
+<th class="px-6 py-3 font-label-mono text-caption text-on-surface-variant uppercase">Title</th>
+<th class="px-6 py-3 font-label-mono text-caption text-on-surface-variant uppercase">Tags</th>
+<th class="px-6 py-3 font-label-mono text-caption text-on-surface-variant uppercase text-center">Answers</th>
+<th class="px-6 py-3 font-label-mono text-caption text-on-surface-variant uppercase text-center">Votes</th>
+<th class="px-6 py-3 font-label-mono text-caption text-on-surface-variant uppercase text-right">Meta</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container transition-colors cursor-pointer group">
+<td class="px-6 py-4">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span>
+</td>
+<td class="px-6 py-4">
+<p class="font-body-sm text-on-surface group-hover:text-primary transition-colors">Implementing high-concurrency websocket handlers in Rust</p>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-2">
+<span class="px-2 py-0.5 bg-surface-container-highest border border-outline-variant rounded font-label-mono text-[10px] text-on-surface-variant">rust</span>
+<span class="px-2 py-0.5 bg-surface-container-highest border border-outline-variant rounded font-label-mono text-[10px] text-on-surface-variant">async</span>
+</div>
+</td>
+<td class="px-6 py-4 text-center font-label-mono text-body-sm text-on-surface">12</td>
+<td class="px-6 py-4 text-center font-label-mono text-body-sm text-on-surface">45</td>
+<td class="px-6 py-4 text-right">
+<p class="font-caption text-on-surface-variant">2h ago</p>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container transition-colors cursor-pointer group">
+<td class="px-6 py-4">
+<span class="material-symbols-outlined text-primary" data-icon="hourglass_empty">hourglass_empty</span>
+</td>
+<td class="px-6 py-4">
+<p class="font-body-sm text-on-surface group-hover:text-primary transition-colors">Kubernetes pod stuck in ContainerCreating with Custom Resource Definitions</p>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-2">
+<span class="px-2 py-0.5 bg-surface-container-highest border border-outline-variant rounded font-label-mono text-[10px] text-on-surface-variant">k8s</span>
+<span class="px-2 py-0.5 bg-surface-container-highest border border-outline-variant rounded font-label-mono text-[10px] text-on-surface-variant">devops</span>
+</div>
+</td>
+<td class="px-6 py-4 text-center font-label-mono text-body-sm text-on-surface">3</td>
+<td class="px-6 py-4 text-center font-label-mono text-body-sm text-on-surface">18</td>
+<td class="px-6 py-4 text-right">
+<p class="font-caption text-on-surface-variant">5h ago</p>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container transition-colors cursor-pointer group">
+<td class="px-6 py-4">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span>
+</td>
+<td class="px-6 py-4">
+<p class="font-body-sm text-on-surface group-hover:text-primary transition-colors">Optimizing Postgres index scans for multi-tenant SaaS architecture</p>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-2">
+<span class="px-2 py-0.5 bg-surface-container-highest border border-outline-variant rounded font-label-mono text-[10px] text-on-surface-variant">sql</span>
+<span class="px-2 py-0.5 bg-surface-container-highest border border-outline-variant rounded font-label-mono text-[10px] text-on-surface-variant">db</span>
+</div>
+</td>
+<td class="px-6 py-4 text-center font-label-mono text-body-sm text-on-surface">24</td>
+<td class="px-6 py-4 text-center font-label-mono text-body-sm text-on-surface">102</td>
+<td class="px-6 py-4 text-right">
+<p class="font-caption text-on-surface-variant">1d ago</p>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container transition-colors cursor-pointer group">
+<td class="px-6 py-4">
+<span class="material-symbols-outlined text-primary" data-icon="hourglass_empty">hourglass_empty</span>
+</td>
+<td class="px-6 py-4">
+<p class="font-body-sm text-on-surface group-hover:text-primary transition-colors">Next.js 14 Server Actions vs Client Components: Best Practices for Auth</p>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-2">
+<span class="px-2 py-0.5 bg-surface-container-highest border border-outline-variant rounded font-label-mono text-[10px] text-on-surface-variant">nextjs</span>
+<span class="px-2 py-0.5 bg-surface-container-highest border border-outline-variant rounded font-label-mono text-[10px] text-on-surface-variant">react</span>
+</div>
+</td>
+<td class="px-6 py-4 text-center font-label-mono text-body-sm text-on-surface">7</td>
+<td class="px-6 py-4 text-center font-label-mono text-body-sm text-on-surface">31</td>
+<td class="px-6 py-4 text-right">
+<p class="font-caption text-on-surface-variant">1d ago</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-6 py-4 border-t border-outline-variant bg-surface-container-low/30">
+<button class="font-label-mono text-caption text-primary hover:underline">View all system logs →</button>
+</div>
+</section>
+</main>
+<!-- Right Panel -->
+<aside class="w-[240px] border-l border-outline-variant p-gutter bg-surface-dim min-h-screen">
+<!-- Trending Tags -->
+<section class="mb-stack-xl">
+<h3 class="font-label-mono text-caption text-on-surface-variant uppercase tracking-widest mb-6 opacity-60">Trending Tags</h3>
+<ul class="space-y-4">
+<li class="flex items-start gap-4">
+<span class="font-label-mono text-body-md text-outline-variant">01</span>
+<div>
+<p class="font-label-mono text-label-mono text-on-surface font-bold hover:text-primary cursor-pointer">#typescript</p>
+<p class="font-caption text-on-surface-variant opacity-70">1.2k queries</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="font-label-mono text-body-md text-outline-variant">02</span>
+<div>
+<p class="font-label-mono text-label-mono text-on-surface font-bold hover:text-primary cursor-pointer">#aws-lambda</p>
+<p class="font-caption text-on-surface-variant opacity-70">850 queries</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="font-label-mono text-body-md text-outline-variant">03</span>
+<div>
+<p class="font-label-mono text-label-mono text-on-surface font-bold hover:text-primary cursor-pointer">#pytorch</p>
+<p class="font-caption text-on-surface-variant opacity-70">720 queries</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="font-label-mono text-body-md text-outline-variant">04</span>
+<div>
+<p class="font-label-mono text-label-mono text-on-surface font-bold hover:text-primary cursor-pointer">#docker</p>
+<p class="font-caption text-on-surface-variant opacity-70">610 queries</p>
+</div>
+</li>
+</ul>
+</section>
+<!-- Recent Activity -->
+<section>
+<h3 class="font-label-mono text-caption text-on-surface-variant uppercase tracking-widest mb-6 opacity-60">Network Activity</h3>
+<div class="space-y-6">
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container/20 flex items-center justify-center shrink-0 border border-primary-container/30">
+<span class="material-symbols-outlined text-primary text-[16px]" data-icon="edit">edit</span>
+</div>
+<div>
+<p class="font-body-sm text-on-surface leading-tight">Sarah K. updated the <span class="text-primary underline">Rust-API</span> docs.</p>
+<p class="font-caption text-on-surface-variant mt-1">12m ago</p>
+</div>
+</div>
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container/20 flex items-center justify-center shrink-0 border border-outline-variant/30">
+<span class="material-symbols-outlined text-secondary text-[16px]" data-icon="forum">forum</span>
+</div>
+<div>
+<p class="font-body-sm text-on-surface leading-tight">New discussion started in <span class="text-primary underline">#architecture</span>.</p>
+<p class="font-caption text-on-surface-variant mt-1">45m ago</p>
+</div>
+</div>
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container/10 flex items-center justify-center shrink-0 border border-primary-container/20">
+<span class="material-symbols-outlined text-primary text-[16px]" data-icon="star">star</span>
+</div>
+<div>
+<p class="font-body-sm text-on-surface leading-tight">You earned <span class="font-bold">Expert</span> badge in PostgreSQL.</p>
+<p class="font-caption text-on-surface-variant mt-1">3h ago</p>
+</div>
+</div>
+</div>
+<div class="mt-10 p-4 border border-outline-variant bg-surface-container-low rounded relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-[64px]" data-icon="bolt">bolt</span>
+</div>
+<p class="font-label-mono text-caption text-primary uppercase font-bold mb-2">Pro Insight</p>
+<p class="font-body-sm text-on-surface-variant">Average query resolution is 12% faster when including environment logs.</p>
+</div>
+</section>
+</aside>
+</div>
+<!-- Footer Integration -->
+<footer class="ml-[220px] w-auto py-stack-xl px-gutter flex flex-col md:flex-row justify-between items-center bg-surface-container-lowest border-t border-outline-variant">
+<p class="font-body-sm text-on-surface-variant">© 2024 SolveHub Technical Documentation. All rights reserved.</p>
+<div class="flex gap-6 mt-4 md:mt-0">
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Privacy Policy</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Terms of Service</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">API Status</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Contact Support</a>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Profile | SolveHub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @font-face {
+            font-family: 'Geist';
+            src: url('https://cdn.jsdelivr.net/gh/vercel/geist-font@main/packages/next/dist/fonts/geist-sans/Geist-Medium.woff2') format('woff2');
+            font-weight: 500;
+        }
+        @font-face {
+            font-family: 'Geist';
+            src: url('https://cdn.jsdelivr.net/gh/vercel/geist-font@main/packages/next/dist/fonts/geist-sans/Geist-SemiBold.woff2') format('woff2');
+            font-weight: 600;
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed-variant": "#004c6a",
+                      "surface-container-low": "#1c1b1b",
+                      "on-surface-variant": "#d8c3ad",
+                      "on-background": "#e5e2e1",
+                      "on-secondary-fixed": "#1b1c1c",
+                      "surface-container-highest": "#353534",
+                      "primary-fixed": "#ffddb8",
+                      "secondary-fixed": "#e4e2e1",
+                      "inverse-on-surface": "#313030",
+                      "tertiary": "#8fd5ff",
+                      "on-tertiary-container": "#004966",
+                      "surface-variant": "#353534",
+                      "on-tertiary": "#00344a",
+                      "primary-fixed-dim": "#ffb95f",
+                      "tertiary-fixed-dim": "#7fd0ff",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-surface": "#e5e2e1",
+                      "secondary-container": "#474746",
+                      "inverse-primary": "#855300",
+                      "outline-variant": "#534434",
+                      "outline": "#a08e7a",
+                      "on-tertiary-fixed": "#001e2d",
+                      "error": "#ffb4ab",
+                      "tertiary-container": "#1abdff",
+                      "primary-container": "#f59e0b",
+                      "on-primary-fixed": "#2a1700",
+                      "on-secondary": "#303030",
+                      "on-primary-fixed-variant": "#653e00",
+                      "background": "#131313",
+                      "secondary": "#c8c6c5",
+                      "on-primary-container": "#613b00",
+                      "surface-container-high": "#2a2a2a",
+                      "on-error": "#690005",
+                      "tertiary-fixed": "#c5e7ff",
+                      "surface": "#131313",
+                      "surface-tint": "#ffb95f",
+                      "surface-container": "#201f1f",
+                      "inverse-surface": "#e5e2e1",
+                      "surface-dim": "#131313",
+                      "surface-bright": "#3a3939",
+                      "on-error-container": "#ffdad6",
+                      "on-secondary-container": "#b7b5b4",
+                      "on-secondary-fixed-variant": "#474746",
+                      "primary": "#ffc174",
+                      "error-container": "#93000a",
+                      "secondary-fixed-dim": "#c8c6c5",
+                      "on-primary": "#472a00"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "container_max_width": "1280px",
+                      "margin_mobile": "16px",
+                      "margin_desktop": "48px",
+                      "gutter": "24px",
+                      "base_unit": "4px",
+                      "stack-xl": "48px",
+                      "stack-md": "24px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Geist"],
+                      "headline-lg": ["Geist"],
+                      "label-md": ["Geist"],
+                      "label-sm": ["Geist"],
+                      "body-md": ["Geist"],
+                      "body-lg": ["Geist"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "label-sm": ["10px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                      "label-md": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "body-md": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                      "body-lg": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="font-body-md text-on-background selection:bg-primary/30">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-background/60 backdrop-blur-md border-b border-surface-container-low h-16">
+<div class="max-w-[1280px] mx-auto px-gutter flex justify-between items-center h-full">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">SolveHub</span>
+<nav class="hidden md:flex gap-6 items-center h-full">
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-150 py-1" href="#">Explore</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-150 py-1" href="#">Tags</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-label-md text-label-md py-1" href="#">Users</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">Sign In</button>
+<button class="bg-primary-container text-on-primary-container px-4 py-2 font-label-md text-label-md rounded hover:opacity-90 transition-opacity active:scale-95 duration-150">Ask Question</button>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-[220px] bg-surface-dim border-r border-outline-variant py-stack-md z-40 hidden xl:flex flex-col">
+<div class="px-6 mb-12 mt-20">
+<h1 class="font-headline-md text-headline-md font-black text-primary">SolveHub</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-60 uppercase">Knowledge Engine</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:bg-surface-container hover:text-primary transition-all duration-150 group" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="home">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:bg-surface-container hover:text-primary transition-all duration-150 group" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="trending_up">trending_up</span>
+<span class="font-label-md text-label-md">Trending</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:bg-surface-container hover:text-primary transition-all duration-150 group" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="groups">groups</span>
+<span class="font-label-md text-label-md">Community</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content -->
+<main class="xl:pl-[220px] pt-16 min-h-screen">
+<div class="max-w-[1280px] mx-auto px-gutter py-stack-xl">
+<!-- Profile Header -->
+<section class="flex flex-col md:flex-row md:items-end gap-8 mb-stack-xl">
+<div class="relative group">
+<img alt="User profile" class="w-16 h-16 rounded-full border border-outline-variant object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6hovT1HN67cyIs6I5xQuJMyy6q0C6UisPSEdihSuNrrX0AF_UZdobZ8QLNGX4JFJCEG66PawdwdHmSHBIAyedJO1YemBln4eKUqwfu025OKMkPUr2YgWEEeeMRi4PMYD2xRVRHTsw9XThfIKtDxv-OBgtB7dIS28UY61VjRDYerCoEHEUfYph00-jSQVA0fJsAV0IqffoAtCd_wm0LPcdnAbhQIBdRUZ4T6-b8Jh1iygABwI-atbT0-8JDBoIikanjaZS6t-2uDH6" style="border-radius: 12px;"/>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-primary rounded-full border-2 border-background"></div>
+</div>
+<div class="flex-1 flex flex-col gap-2">
+<h1 class="font-headline-md text-[1.5rem] text-on-surface leading-none">Alexander Pierce</h1>
+<div class="flex flex-wrap gap-x-6 gap-y-2 font-label-md text-label-md text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="terminal">terminal</span>
+<span>Senior Systems Architect</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="location_on">location_on</span>
+<span>Berlin, Germany</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="calendar_today">calendar_today</span>
+<span>Joined April 2021</span>
+</div>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="px-4 py-2 bg-surface-container border border-outline-variant font-label-md text-label-md text-on-surface hover:bg-surface-container-highest transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="mail">mail</span>
+                        Message
+                    </button>
+<button class="px-4 py-2 bg-primary text-on-primary font-label-md text-label-md hover:opacity-90 transition-opacity">
+                        Follow
+                    </button>
+</div>
+</section>
+<!-- Stats Row -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-stack-xl">
+<div class="bg-surface-container-low border border-outline-variant p-4 rounded-lg">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Reputation</p>
+<p class="font-label-md text-headline-md text-primary">12,482</p>
+</div>
+<div class="bg-surface-container-low border border-outline-variant p-4 rounded-lg">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Questions</p>
+<p class="font-label-md text-headline-md text-on-surface">43</p>
+</div>
+<div class="bg-surface-container-low border border-outline-variant p-4 rounded-lg">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Answers</p>
+<p class="font-label-md text-headline-md text-on-surface">856</p>
+</div>
+<div class="bg-surface-container-low border border-outline-variant p-4 rounded-lg">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Impact</p>
+<p class="font-label-md text-headline-md text-on-surface">2.4m</p>
+</div>
+</section>
+<!-- Tab Bar -->
+<div class="border-b border-outline-variant mb-8 overflow-x-auto">
+<div class="flex gap-8">
+<button class="pb-4 text-primary font-label-md text-label-md border-b-2 border-primary">Questions</button>
+<button class="pb-4 text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-colors">Answers</button>
+<button class="pb-4 text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-colors">Badges</button>
+<button class="pb-4 text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-colors">Activity</button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Main List View (Questions) -->
+<div class="lg:col-span-2 space-y-4">
+<!-- Dashboard List Item -->
+<div class="bg-surface-container-lowest border border-outline-variant p-5 hover:bg-surface-container-low transition-colors duration-150 group">
+<div class="flex justify-between items-start mb-3">
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-container-highest/40 text-on-surface-variant px-2 py-0.5 font-label-md text-[11px] rounded border border-outline-variant/30">rust</span>
+<span class="bg-surface-container-highest/40 text-on-surface-variant px-2 py-0.5 font-label-md text-[11px] rounded border border-outline-variant/30">memory-safety</span>
+<span class="bg-surface-container-highest/40 text-on-surface-variant px-2 py-0.5 font-label-md text-[11px] rounded border border-outline-variant/30">concurrency</span>
+</div>
+<span class="font-label-md text-label-sm text-on-surface-variant uppercase">2 days ago</span>
+</div>
+<h3 class="font-headline-md text-on-surface mb-2 group-hover:text-primary transition-colors">Implementing a lock-free priority queue with atomic pointers</h3>
+<p class="text-on-surface-variant font-body-md line-clamp-2 mb-4">I'm currently working on a high-throughput systems project where I need a priority queue that supports concurrent insertions and extractions without global locks...</p>
+<div class="flex gap-6 font-label-md text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" data-icon="thumb_up">thumb_up</span> 128</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" data-icon="chat_bubble">chat_bubble</span> 14</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" data-icon="visibility">visibility</span> 1.2k</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-5 hover:bg-surface-container-low transition-colors duration-150 group">
+<div class="flex justify-between items-start mb-3">
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-container-highest/40 text-on-surface-variant px-2 py-0.5 font-label-md text-[11px] rounded border border-outline-variant/30">distributed-systems</span>
+<span class="bg-surface-container-highest/40 text-on-surface-variant px-2 py-0.5 font-label-md text-[11px] rounded border border-outline-variant/30">raft</span>
+</div>
+<span class="font-label-md text-label-sm text-on-surface-variant uppercase">1 week ago</span>
+</div>
+<h3 class="font-headline-md text-on-surface mb-2 group-hover:text-primary transition-colors">Handling partial partition failures in Raft consensus implementations</h3>
+<p class="text-on-surface-variant font-body-md line-clamp-2 mb-4">When a node is partially partitioned (can see some nodes but not others), it can trigger constant re-elections. What is the best strategy to dampen this noise...</p>
+<div class="flex gap-6 font-label-md text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" data-icon="thumb_up">thumb_up</span> 456</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" data-icon="chat_bubble">chat_bubble</span> 89</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" data-icon="visibility">visibility</span> 5.8k</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-5 hover:bg-surface-container-low transition-colors duration-150 group">
+<div class="flex justify-between items-start mb-3">
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-container-highest/40 text-on-surface-variant px-2 py-0.5 font-label-md text-[11px] rounded border border-outline-variant/30">postgres</span>
+<span class="bg-surface-container-highest/40 text-on-surface-variant px-2 py-0.5 font-label-md text-[11px] rounded border border-outline-variant/30">performance</span>
+</div>
+<span class="font-label-md text-label-sm text-on-surface-variant uppercase">3 weeks ago</span>
+</div>
+<h3 class="font-headline-md text-on-surface mb-2 group-hover:text-primary transition-colors">Optimizing GIN index performance for 100M+ record JSONB columns</h3>
+<p class="text-on-surface-variant font-body-md line-clamp-2 mb-4">We've noticed significant write amplification when updating JSONB fields with GIN indexes at scale. Here's our findings on partial indexing as an alternative...</p>
+<div class="flex gap-6 font-label-md text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" data-icon="thumb_up">thumb_up</span> 892</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" data-icon="chat_bubble">chat_bubble</span> 32</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" data-icon="visibility">visibility</span> 12.4k</span>
+</div>
+</div>
+</div>
+<!-- Sidebar Content (Activity Timeline) -->
+<div class="space-y-8">
+<div class="bg-surface-container border border-outline-variant p-6 rounded-lg">
+<h4 class="font-label-md text-label-md text-primary uppercase mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="history">history</span>
+                            Recent Activity
+                        </h4>
+<div class="relative flex flex-col gap-8">
+<!-- Vertical Line -->
+<div class="absolute left-[7px] top-2 bottom-2 w-px bg-outline-variant/30"></div>
+<!-- Timeline Item -->
+<div class="relative pl-8">
+<div class="absolute left-0 top-1.5 w-3.5 h-3.5 bg-primary rounded-full border-2 border-background z-10"></div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase">2024-05-24 14:32</p>
+<p class="text-on-surface font-body-md">Accepted answer for <span class="text-primary font-medium">"Zero-copy networking in Go"</span></p>
+</div>
+<div class="relative pl-8">
+<div class="absolute left-0 top-1.5 w-3.5 h-3.5 bg-outline-variant rounded-full border-2 border-background z-10"></div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase">2024-05-23 09:15</p>
+<p class="text-on-surface font-body-md">Earned <span class="text-primary font-medium">"Top Contributor"</span> silver badge</p>
+</div>
+<div class="relative pl-8">
+<div class="absolute left-0 top-1.5 w-3.5 h-3.5 bg-outline-variant rounded-full border-2 border-background z-10"></div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase">2024-05-22 18:45</p>
+<p class="text-on-surface font-body-md">Commented on <span class="text-primary font-medium">"Kafka lag mitigation strategies"</span></p>
+</div>
+<div class="relative pl-8">
+<div class="absolute left-0 top-1.5 w-3.5 h-3.5 bg-outline-variant rounded-full border-2 border-background z-10"></div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase">2024-05-20 11:10</p>
+<p class="text-on-surface font-body-md">Updated profile bio and social links</p>
+</div>
+</div>
+</div>
+<!-- Badges Preview -->
+<div class="bg-surface-container border border-outline-variant p-6 rounded-lg">
+<h4 class="font-label-md text-label-md text-on-surface uppercase mb-6 flex justify-between items-center">
+                            Badges
+                            <span class="text-primary text-[11px] cursor-pointer hover:underline">View all</span>
+</h4>
+<div class="flex flex-wrap gap-4">
+<div class="w-12 h-12 bg-surface-container-highest rounded border border-outline-variant flex items-center justify-center" title="Gold Badge">
+<span class="material-symbols-outlined text-[24px] text-primary" data-icon="stars" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<div class="w-12 h-12 bg-surface-container-highest rounded border border-outline-variant flex items-center justify-center" title="Silver Badge">
+<span class="material-symbols-outlined text-[24px] text-on-surface-variant" data-icon="shield" style="font-variation-settings: 'FILL' 1;">shield</span>
+</div>
+<div class="w-12 h-12 bg-surface-container-highest rounded border border-outline-variant flex items-center justify-center" title="Bronze Badge">
+<span class="material-symbols-outlined text-[24px] text-primary/60" data-icon="military_tech" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+<div class="w-12 h-12 bg-surface-container-highest rounded border border-outline-variant flex items-center justify-center opacity-40">
+<span class="material-symbols-outlined text-[24px] text-on-surface-variant" data-icon="lock">lock</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-xl px-gutter bg-surface-container-lowest border-t border-outline-variant">
+<div class="max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col gap-2">
+<span class="font-label-md text-label-md font-bold text-on-surface">SolveHub</span>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 SolveHub Technical Documentation. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-4">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Privacy Policy</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Terms of Service</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">API Status</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+</body></html>
