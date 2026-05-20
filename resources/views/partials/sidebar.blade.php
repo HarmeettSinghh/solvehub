@@ -14,11 +14,11 @@
             <span class="material-symbols-outlined mr-3">home</span>
             <span class="text-sm font-mono">Home</span>
         </a>
-        <a href="{{ route('questions.index', ['sort' => 'popular']) }}" class="flex items-center px-6 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all duration-150">
+        <a href="{{ route('questions.index', ['sort' => 'popular']) }}" class="flex items-center px-6 py-3 {{ request()->routeIs('questions.index') && request('sort') === 'popular' ? 'bg-surface-container-highest text-primary border-l-4 border-primary-container' : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container' }} transition-all duration-150">
             <span class="material-symbols-outlined mr-3">trending_up</span>
             <span class="text-sm font-mono">Trending</span>
         </a>
-        <a href="{{ route('questions.index') }}" class="flex items-center px-6 py-3 {{ request()->routeIs('questions.index') ? 'bg-surface-container-highest text-primary border-l-4 border-primary-container' : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container' }} transition-all duration-150">
+        <a href="{{ route('questions.index') }}" class="flex items-center px-6 py-3 {{ request()->routeIs('questions.index') && request('sort') !== 'popular' ? 'bg-surface-container-highest text-primary border-l-4 border-primary-container' : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container' }} transition-all duration-150">
             <span class="material-symbols-outlined mr-3">forum</span>
             <span class="text-sm font-mono">Questions</span>
         </a>

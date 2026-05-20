@@ -5,8 +5,8 @@
         <div class="flex items-center gap-8">
             <a href="{{ route('home') }}" class="text-2xl font-bold text-on-surface tracking-tight">SolveHub</a>
             <div class="hidden md:flex items-center gap-6">
-                <a href="{{ route('questions.index') }}" class="text-xs font-mono {{ request()->routeIs('questions.index') || request()->routeIs('home') ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface-variant hover:text-primary' }} transition-colors duration-150 tracking-wider uppercase">Explore</a>
-                <a href="{{ route('questions.index', ['sort' => 'popular']) }}" class="text-xs font-mono text-on-surface-variant hover:text-primary transition-colors duration-150 tracking-wider uppercase">Trending</a>
+                <a href="{{ route('questions.index') }}" class="text-xs font-mono {{ (request()->routeIs('questions.index') && request('sort') !== 'popular') || request()->routeIs('home') ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface-variant hover:text-primary' }} transition-colors duration-150 tracking-wider uppercase">Explore</a>
+                <a href="{{ route('questions.index', ['sort' => 'popular']) }}" class="text-xs font-mono {{ request()->routeIs('questions.index') && request('sort') === 'popular' ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface-variant hover:text-primary' }} transition-colors duration-150 tracking-wider uppercase">Trending</a>
             </div>
         </div>
 
